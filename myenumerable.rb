@@ -1,16 +1,16 @@
 module Myenumerable
-    def all(&block)
-        each { |item| return false unless block.call(item)}
+    def all(&blk)
+        each { |item| return false unless blk.call(item)}
         true
       end
       
-    def any(&block)
-        each { |item| return true if block.call(item) }
+    def any(&blk)
+        each { |item| return true if blk.call(item) }
     false
     end
-    def filter(&block)
+    def filter(&blk)
         result = []
-    each { |item| result << item if block.call(item) }
+    each { |item| result << item if blk.call(item) }
     result
     end
 end
